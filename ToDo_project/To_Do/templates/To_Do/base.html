@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<ul>
+    {% for item in items %}
+       <li>
+           {{ item }}
+           <form action="/deleteitem/{{item.id}}/" method="POST">
+       {% csrf_token %}
+       <input type="submit" value="Delete">
+</form>
+       </li>
+    {% endfor %}
+</ul>
+
+<form action="/additem" method="POST">
+    {% csrf_token %}
+    <!--<input type="text" name="content">
+    <input type ="text" name="author">-->
+  <table>
+
+          {{ form }}
+  </table>
+     <input type="submit" value="Add">
+
+</form>
+</body>
+</html>
